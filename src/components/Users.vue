@@ -1,11 +1,12 @@
 <template>
     <div>
         <h3>Users list</h3>
-        <div>
+        <div class="user-list">
             <user-item
                     v-for="user in users"
                     :key="user.id"
                     :user="user"
+                    @deleteUser="deleteUser"
             />
         </div>
     </div>
@@ -32,6 +33,13 @@
                     .then(users => {
                         this.users = users;
                     });
+            },
+            deleteUser(user) {
+                let i = this.users.indexOf(user);
+
+                if (i !== -1) {
+                    this.users.splice(i, 1);
+                }
             }
         },
 
@@ -41,6 +49,9 @@
     }
 </script>
 
-<style lang="scss">
-
+<style scoped lang="scss">
+    .user-list {
+        width: 300px;
+        margin: auto;
+    }
 </style>

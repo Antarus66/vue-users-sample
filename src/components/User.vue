@@ -1,5 +1,8 @@
 <template>
-    <div>{{ user.username }}</div>
+    <div class="item">
+        <button v-on:click="deleteUser(user)">x</button>
+        <span> {{ user.username }}</span>
+    </div>
 </template>
 
 <script>
@@ -12,10 +15,18 @@
         },
         data() {
             return {};
+        },
+        methods: {
+            deleteUser(user) {
+                this.$emit("deleteUser", user);
+            }
         }
     }
 </script>
 
-<style lang="scss">
-
+<style scoped lang="scss">
+    .item {
+        text-align: left;
+        padding: 5px;
+    }
 </style>
