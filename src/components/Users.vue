@@ -6,7 +6,7 @@
                     v-for="user in users"
                     :key="user.id"
                     :user="user"
-                    @deleteUser="deleteUser"
+                    @deletedUser="deleteUser"
             />
         </div>
     </div>

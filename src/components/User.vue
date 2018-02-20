@@ -18,7 +18,10 @@
         },
         methods: {
             deleteUser(user) {
-                this.$emit("deleteUser", user);
+                fetch("https://jsonplaceholder.typicode.com/users/" + user.id, {method: 'delete'})
+                    .then(res => {
+                        this.$emit("deletedUser", user);
+                    });
             }
         }
     }
