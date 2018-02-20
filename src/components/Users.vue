@@ -1,16 +1,22 @@
 <template>
     <div>
         <h3>Users list</h3>
-        <ul>
-            <li v-for="user in users">{{ user.username }}</li>
-        </ul>
+        <div>
+            <user-item
+                    v-for="user in users"
+                    :key="user.id"
+                    :user="user"
+            />
+        </div>
     </div>
 </template>
 
 <script>
+    import User from "./User.vue";
+
     export default {
         components: {
-
+            "user-item": User
         },
 
         data () {
